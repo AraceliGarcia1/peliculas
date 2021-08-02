@@ -27,11 +27,11 @@
     <label>Fecha de Estreno:</label>
     <input class="form-control" type="date" name="releaseDate" />
     <br>
-    <label>Recaudacion:</label>
+    <label>Recaudacion $:</label>
     <input class="form-control" type="number" name="takings" />
     <br>
     <button type="button" class="btn btn-secondary"><i class="fas fa-times"></i> Cancelar</button>
-    <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Aceptar</button>
+    <button type="submit" class="btn btn-success"><i class="fas fa-check-square"></i> Aceptar</button>
 </form>
 
 <script src="${context}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>

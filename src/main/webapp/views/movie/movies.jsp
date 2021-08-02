@@ -16,15 +16,15 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 <body>
-<a href="${context}/views/movie/register.jsp" class="btn btn-outline-success"><i class="fas fa-plus"></i> Agregar pelicula</a>
-<table class="table">
-    <thead class="table-dark">
+<a href="${context}/views/movie/register.jsp" class="btn btn-success"><i class="fas fa-plus"></i> Agregar pelicula</a>
+<table class="table table-info table-striped border-">
+    <thead class="table-danger">
     <tr>
         <th>No.</th>
         <th>Nombre</th>
         <th>Descripcion</th>
         <th>Fecha de Estreno</th>
-        <th>Recaudacion</th>
+        <th>Recaudacion $</th>
         <th>Estado</th>
         <th>Acciones</th>
     </tr>
@@ -50,12 +50,12 @@
                     <form action="${context}/getUserById" method="POST" style="display: inline;">
                         <input type="hidden" name="action" value="getUserById">
                         <input type="hidden" name="id" value="${ movie.id }">
-                        <button type="submit" class="btn btn-outline-primary"><i class="fas fa-edit"></i> Modificar</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i> Modificar</button>
                     </form>
-                    <button id="btn-delete-${ status.count }" data-code="${ movie.id }" data-text="${ movie.name } " type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete"><i class="fas fa-trash"></i> Eliminar</button>
+                    <button id="btn-delete-${ status.count }" data-code="${ movie.id }" data-text="${ movie.name } " type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete"><i class="fas fa-trash"></i> Eliminar</button>
                 </c:if>
                 <c:if test="${ movie.status == 0 }">
-                    <button id="btn-details-${ status.count }" data-code="${ movie.id }" data-text="${ movie.name } " type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#details"><i class="fas fa-info-circle"></i> Detalles</button>
+                    <button id="btn-details-${ status.count }"  data-text=" Nombre: ${ movie.name } . Descripcion: ${ movie.description } . Fecha de Estreno: ${ movie.releaseDate } . Recaudacion $ ${ movie.takings } " type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#details"><i class="fas fa-info-circle"></i> Detalles</button>
                 </c:if>
             </td>
         </tr>
@@ -90,18 +90,15 @@
 <div class="modal fade" id="details" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="${context}/getUserById" method="POST" style="display: inline;">
-                <input type="hidden" name="action" value="getUserById">
-                <input type="hidden" name="id" value="${ movie.id }">
+            <form action="${context}/readMovies" method="POST">
+                <input type="hidden" name="action" value="details">
+                <input type="hidden" name="id" id="id2">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel2">Detalles de la Pelicula</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <label>Detalles</label>
                 <h5 id="text-details"></h5>
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cerrar</button>

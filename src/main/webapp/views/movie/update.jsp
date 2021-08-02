@@ -28,12 +28,12 @@
     <label>Fecha de Estreno:</label>
     <input class="form-control" type="date" name="releaseDate" value="${ movie.releaseDate }" />
     <br>
-    <label>Recaudacion:</label>
+    <label>Recaudacion $:</label>
     <input class="form-control" type="number" name="takings" value="${ movie.takings }" />
     <br>
 
     <button type="button" class="btn btn-secondary"><i class="fas fa-times"></i> Cancelar</button>
-    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i> Aceptar</button>
+    <button type="submit" class="btn btn-primary"><i class="fas fa-check-square"></i> Aceptar</button>
 </form>
 
 <script src="${context}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
